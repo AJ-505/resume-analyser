@@ -1,0 +1,82 @@
+Front	Back
+What is a Database Management System (DBMS)?	A DBMS is system software for creating and managing databases, providing a systematic way to create, retrieve, update, and manage data.
+What are the three key components managed by a DBMS?	1. Data, 2. Database engine (access, lock, modify data), 3. Database schema (logical structure).
+What is the purpose of the DBMS architecture?	It determines the design of the DBMS, which can be centralized, decentralized, or hierarchical. It features three layers: database, DBMS, and view layers.
+What are the components of the DBMS layer?	1. Query Processor: DML Pre-compiler, Embedded DML Pre-compiler, DDL Interpreter, Query Evaluation Engine. 2. Storage Manager: Authorization and Integrity Manager, Transaction Manager, File Manager, Buffer Manager.
+What is the role of the Query Processor in a DBMS?	It translates, compiles, and executes queries to interact with the database efficiently.
+What does the Storage Manager in a DBMS do?	It handles storing, retrieving, and updating data, managing integrity, transactions, file allocation, and memory caching.
+What is a Data Dictionary in a DBMS?	A file or set of files containing metadata, such as data ownership, relationships, and structure.
+What is indexing in DBMS?	A data structure technique to retrieve records efficiently based on key attributes.
+What are the levels of data abstraction in DBMS?	1. Physical Level (storage structure, compression), 2. Conceptual Level (structure for users, schema), 3. External Level (user view).
+What are the types of data models in DBMS?	Relational, Network, Hierarchical, Object-Oriented, Context, Object-Relational, Entity-Relationship, Semi-Structured, Associative, Record-Based, Flat models.
+Describe the Relational Data Model.	Data is stored in tables (relations) with rows (tuples) and columns (attributes). Relations can be normalized with atomic values.
+What are the advantages of the Relational Data Model?	Structural independence, simplicity, easier design, and implementation, and powerful DBMS capabilities.
+What is the Network Data Model?	Data organized in a graph with entities accessible through multiple paths.
+What is the Hierarchical Database Model?	Data organized in a tree structure with one parent entity and multiple children. Relationships are one-to-many.
+What is the Object-Oriented Data Model?	Supports complex data like audio, video, and graphics, combining data pieces and methods for high performance.
+What is the Context Data Model?	A collection of multiple data models for versatile data management and efficient context handling.
+What is the Semi-Structured Data Model?	Combines structured and unstructured data, suitable for flexible structures, data integration, and big data analytics.
+What is the Associative Model in DBMS?	Divides data into entities and associations, focusing on relationships and attributes.
+What is the Flat Data Model?	The simplest data model where all data is stored in a single table with rows and columns. Inefficient for large datasets.
+What are the main advantages of the Hierarchical Database Model?	Simplicity, security, database integrity, and efficiency for one-to-many relationships.
+What are the disadvantages of the Hierarchical Database Model?	Complex implementation, difficult management, complex programming, and poor portability.
+What does DBMS stand for?	Database Management System.
+What is the function of the DDL Interpreter?	It interprets DDL statements and records metadata in tables, creating the data dictionary.
+What is the main purpose of the Transaction Manager?	To ensure database consistency by managing transactions and applying changes only after a transaction is fully completed.
+What is the role of the File Manager in a DBMS?	It manages disk storage allocation and the data structures for storing database information.
+What does the Buffer Manager do?	It decides which data to cache in main memory to optimize database performance.
+What is a 'tuple' in the Relational Data Model?	A single row in a relational table that represents a unique record.
+What is an 'attribute' in the Relational Data Model?	A column in a relational table representing a specific type of data for all tuples.
+What are the components of the Database Layer?	1. Data Dictionary, 2. Data Files, 3. DBMS Indexing.
+What are the three types of DBMS architectures?	1. Centralized, 2. Decentralized, 3. Hierarchical.
+What is a Physical Level in DBMS?	Describes how data is physically stored, retrieved, compressed, and encrypted in a database.
+What is the Conceptual Level in DBMS?	Describes the structure of the entire database, including entities and their relationships.
+What is the External Level in DBMS?	Describes how individual end-users view the data, providing the closest interaction with users.
+What is a data model in DBMS?	An abstract model that organizes and standardizes data relationships and structures.
+What is normalization in the Relational Data Model?	A process of organizing data to reduce redundancy and improve integrity.
+What is the advantage of the Object-Oriented Data Model?	It allows for the storage of complex data types, like multimedia files, with methods and attributes.
+What are the key disadvantages of the Network Data Model?	System complexity, navigational data access, and difficulty in structural modifications.
+What is the main focus of the Entity-Relationship (ER) Model?	Modeling entities, their attributes, and the relationships between them for database design.
+What is the main advantage of the Semi-Structured Data Model?	Flexibility in data structure and improved integration for big data analytics.
+What is the purpose of a Data Dictionary?	To store metadata about database structure, ownership, and relationships.
+What is the significance of DBMS Indexing?	It improves data retrieval efficiency by using data structures for quick lookups.
+What is the Object-Relational Data Model?	A combination of Object-Oriented and Relational models that supports inheritance and complex data structures.
+What is the Associative Model in DBMS?	Focuses on dividing data into entities and associations for efficient data relationships.
+What is the Flat Data Model?	An early model where all data is stored in a single table, making it inefficient for large datasets.
+What are the disadvantages of the Object-Oriented Data Model?	Complex data and relationships can make it difficult to manage.
+What are the key characteristics of the Network Data Model?	Organized graphically with multiple paths to access entities.
+What is the difference between the Conceptual and External Levels?	The Conceptual Level is for groups of users, while the External Level is tailored for individual users.
+What is a hierarchical relationship in a Hierarchical Model?	One-to-many relationships where one parent entity can have multiple child entities.
+What is the key challenge with the Hierarchical Data Model?	Programming complexity due to dependence on physical paths for data retrieval.
+What are Semi-Structured Data Models best suited for?	Big data, unstructured data integration, and analytics.
+What is the purpose of the Query Evaluation Engine?	To execute low-level instructions generated by the Query Processor.
+What is the role of the Authorization and Integrity Manager in DBMS?	To enforce user access permissions and ensure integrity constraints are met.
+What is the significance of the Transaction Manager in DBMS?	It ensures atomicity, consistency, isolation, and durability (ACID properties) of transactions.
+What is the purpose of the Query Processor’s DML Pre-compiler?	To translate DML queries into low-level instructions for execution.
+What is a Conceptual Schema in DBMS?	A representation of the entire database structure, including all entities and their relationships.
+What is meant by data independence in DBMS?	The ability to modify a schema without affecting the data or application layers.
+What are the two types of data independence in DBMS?	1. Logical data independence, 2. Physical data independence.
+What is Logical Data Independence?	The ability to change the conceptual schema without altering external schemas or applications.
+What is Physical Data Independence?	The ability to change the physical storage structure without altering the conceptual schema.
+What are the main uses of a Data Dictionary?	Metadata management, schema definition, and database structure documentation.
+What is the importance of ACID properties in DBMS?	They ensure reliable processing of transactions by maintaining database integrity.
+What does the term 'metadata' refer to in DBMS?	Data about the data, such as structure, ownership, and constraints.
+What is the primary purpose of DBMS indexing?	To speed up data retrieval by using key attributes for searching.
+What is the External Schema in DBMS?	A customized view of the data tailored to individual end-users.
+How does the Network Data Model handle relationships?	By representing them as edges in a graph, allowing many-to-many relationships.
+What is a Foreign Key in the Relational Data Model?	An attribute in one table that references the Primary Key in another table to establish relationships.
+What is the difference between a Primary Key and a Candidate Key?	A Primary Key uniquely identifies records, while a Candidate Key is a potential Primary Key.
+What is the significance of the View Layer in DBMS architecture?	It provides user-specific views and hides the complexity of the underlying database.
+What is a Weak Entity in the Entity-Relationship Model?	An entity that cannot be uniquely identified by its attributes and requires a related strong entity.
+What is the difference between Static and Dynamic Data Models?	Static models define fixed structures, while dynamic models can adapt to changes over time.
+What are the limitations of the Flat Data Model?	Inefficient for large datasets, lacks relationships between records, and poor scalability.
+What is the purpose of Normal Forms in DBMS?	To eliminate redundancy and ensure data dependencies are logical and efficient.
+What is 1NF (First Normal Form)?	A table format where each column contains atomic (indivisible) values, and there are no repeating groups.
+What is 2NF (Second Normal Form)?	A table in 1NF where all non-key attributes are fully dependent on the Primary Key.
+What is 3NF (Third Normal Form)?	A table in 2NF where all attributes are not only dependent on the Primary Key but also free of transitive dependency.
+What is BCNF (Boyce-Codd Normal Form)?	A stricter version of 3NF where every determinant is a candidate key.
+What is a Composite Key?	A key composed of two or more attributes that uniquely identify a record in a table.
+What is Referential Integrity?	A rule ensuring that Foreign Keys correctly reference Primary Keys in related tables.
+What is a Join Operation in Relational Algebra?	Combines two relations based on a common attribute to create a new relation.
+What is the difference between Inner Join and Outer Join?	Inner Join returns matching records, while Outer Join includes unmatched records as well.
+What is a Schema in DBMS?	The logical structure that defines the organization and relationships of data in a database.

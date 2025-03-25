@@ -1,0 +1,100 @@
+/* USING BEM CSS */
+
+*, *::before, *::after{
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: #E8F0FE;
+  min-height: 100vh;
+  min-height: 100dvh;
+  text-align: center;
+}
+
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 8px rgba(0, 0, 0.5);
+  min-height: 85%;
+}
+
+.main__heading {
+  font-size: 2rem;
+  margin-bottom: 1em;
+}
+
+.file-upload {
+  margin: 1rem 0;
+  display: flex;
+  gap: 4px;
+  justify-content: space-evenly;
+  position: relative;
+}
+
+.file-upload__custom-label-button, .file-upload__submit-button {
+  background-color: #3498DB;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  align-self: flex-start;
+  font-size: 1rem;
+  transition: opacity 100ms ease-out;
+}
+
+.file-upload__submit-button{
+  background-color: #2ecc71;
+}
+
+.file-upload__label {
+  padding: 10px 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.file-upload__file {
+  opacity: 0;
+  position: absolute;
+}
+
+#output {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.625rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: clamp(12em, 16em, 20em);
+}
+
+@media(min-width: 600px) {
+  .container {
+    aspect-ratio: 5 / 4;
+  }
+}
+/*
+- The container should also be centered horizontally
+- The textarea should increase as the size of the AI response increases. Try using min-height: fit-content and see if it works.
+- Animate the text movement to improve UI & UX (refer to YouTube)
+- Ask AI for potential improvements that I can make to the UI
+*/

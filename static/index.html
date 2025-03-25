@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI-Powered Resume Analyzer</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="root">
+      <section class="main container">
+        <h1 class="main__heading">AI-Powered Resume Analyzer</h1>
+        <form class="file-upload" id="resume-form">
+          <div class="file-upload__custom-file">
+            <button class="file-upload__custom-label-button" type="button">
+              <label for="file" class="file-upload__label">
+                Choose a File
+              </label>
+            </button>
+            <input
+              type="file"
+              name="file"
+              class="file-upload__file"
+              accept=".pdf, .docx, .txt"
+              id="file"
+              required
+            />
+          </div>
+          <button class="file-upload__submit-button" type="submit">
+            Analyze Resume
+          </button>
+        </form>
+        <textarea
+          id="output"
+          placeholder="Resume summary will appear here..."
+          readonly
+        ></textarea>
+      </section>
+    </div>
+    <script src="../src/index.js"></script>
+  </body>
+</html>
