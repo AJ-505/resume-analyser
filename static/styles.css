@@ -9,8 +9,6 @@
 
 html, body {
   background-color: #E8F0FE;
-  min-height: 100vh;
-  min-height: 100dvh;
   text-align: center;
 }
 
@@ -24,7 +22,7 @@ button:hover {
 }
 
 .root {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,7 +33,8 @@ button:hover {
   padding: 1.25rem;
   border-radius: 0.5rem;
   box-shadow: 0 5px 8px rgba(0, 0, 0.5);
-  min-height: 85%;
+  max-height: 85vh;
+  max-width: min(85%, 700px);
 }
 
 .main__heading {
@@ -84,17 +83,12 @@ button:hover {
   padding: 0.625rem;
   border: 1px solid #ccc;
   border-radius: 5px;
-  height: clamp(12em, 16em, 20em);
+  min-height: 12em;
+  max-height: 20em;
+  overflow-y: scroll;
 }
 
-@media(min-width: 600px) {
-  .container {
-    aspect-ratio: 5 / 4;
-  }
-}
 /*
-- The container should also be centered horizontally
-- The textarea should increase as the size of the AI response increases. Try using min-height: fit-content and see if it works.
 - Animate the text movement to improve UI & UX (refer to YouTube)
 - Ask AI for potential improvements that I can make to the UI
 */

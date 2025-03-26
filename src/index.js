@@ -16,7 +16,7 @@ async function sendData() {
 
     if (result.ok) {
       const text = await result.json();
-      output.textContent = text.body;
+      output.innerHTML = text.body;
     } else {
       output.textContent = "Unable to generate resume summary.";
       return;
