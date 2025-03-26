@@ -1,3 +1,4 @@
+//TODO: Convert all codebase to typescript
 const form = document.querySelector("#resume-form");
 const file = document.querySelector("#file");
 const fileName = document.querySelector(".file-upload__label");
@@ -17,6 +18,11 @@ async function sendData() {
     if (result.ok) {
       const text = await result.json();
       output.innerHTML = text.body;
+      /*
+      TODO: Decide whether to put the analysis in a new page,
+            Or to use a carousel to display each section of the analysis.
+            (Get feedback from others to help decide)
+      */
     } else {
       output.textContent = "Unable to generate resume summary.";
       return;
@@ -31,6 +37,7 @@ async function sendData() {
 file.addEventListener("change", (event) => {
   selectedFile = event.target.files[0];
   fileName.textContent = selectedFile.name;
+  //TODO: When the fileName is too long, the button should show, for example, "MICHAEL JOHN BRADY'S RE....pdf", to illustrate.
 });
 
 form.addEventListener("submit", async (event) => {
