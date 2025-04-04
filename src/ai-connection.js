@@ -30,8 +30,6 @@ async function generateResponse(prompt) {
       }),
     }
   );
-  console.log(prompt);
-  console.log(response);
   const responseText = await response.text();
   return responseText;
 }
