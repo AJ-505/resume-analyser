@@ -21,7 +21,11 @@ async function sendData() {
       /*
       TODO: Decide whether to put the analysis in a new page,
             Or to use a carousel to display each section of the analysis.
-            (Get feedback from others to help decide)
+            (Get feedback to help decide)
+      */
+      /*
+      TODO: Create a carousel where all each sections of the summary are displayed nicely.
+            Also add the option to view the comprehensive report on a page.
       */
     } else {
       output.textContent = "Unable to generate resume summary.";
