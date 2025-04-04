@@ -54,26 +54,26 @@ app.post("/analyse", uploads.single("file"), async (request, response) => {
   const prompt = `
 Please analyze the following text: ${fileText}
 
-Your task is to perform a thorough, professional analysis of the provided text, which is expected to be a resume or CV submitted by a job applicant. Follow the instructions below meticulously. Your output must be comprehensive, clear, and actionable. Ensure that your final response is fully structured in valid HTML. Use appropriate HTML tags (for example, <strong> for emphasis, <p> for paragraphs, and <ul>/<li> for lists) so that the content can be easily styled on the frontend. Do not include any extraneous commentary beyond the structure specified.
+Your task is to perform a comprehensive, professional, and actionable analysis of the provided text, which is expected to be a resume or CV submitted by a job applicant. Your final response must be fully structured in valid HTML, using appropriate tags (e.g., <strong> for emphasis, <p> for paragraphs, <ul>/<li> for lists) so that the content can be easily styled on the frontend. Do not include any extraneous commentary beyond the structure specified.
 
 Instructions:
 
-1. <strong>Resume Verification</strong>  
-   - First, determine if the provided text is indeed a resume or CV.  
-   - If the text is not a resume or CV, output exactly the following and stop further processing:
+1. <strong>Resume Verification</strong>
+   - Determine if the provided text is a resume or CV.
+   - If it is not, output exactly the following and stop further processing:
      <p><strong>This file you have uploaded is not a resume or CV.</strong></p>
 
-2. <strong>Structured Analysis</strong> (if the text is a resume/CV)  
-   Provide your analysis in the following sections. Each section must be clearly marked using HTML headings so that individual sections can be displayed or hidden on the frontend as needed.
+2. <strong>Structured Analysis</strong> (if the text is a resume/CV)
+   Provide your analysis in the sections below. Each section must be clearly marked using HTML headings, and your analysis should be concise yet rich in actionable insights. Include specific examples and recommendations wherever applicable.
 
    <h2>A. Resume Confirmation</h2>
    <ul>
-     <li>Briefly confirm that the uploaded file is indeed a resume or CV.</li>
+     <li>Confirm that the uploaded file is indeed a resume or CV.</li>
    </ul>
 
    <h2>B. Job Application Suggestion</h2>
    <ul>
-     <li>Based on the content, suggest an appropriate job title or field (for example, <strong>Entry-Level Software Engineer</strong>, <strong>Data Analyst Intern</strong>, etc.).</li>
+     <li>Suggest an appropriate job title or field based on the content (e.g., <strong>Entry-Level Software Engineer</strong>, <strong>Data Analyst Intern</strong>, etc.). Include a brief explanation for the suggestion.</li>
    </ul>
 
    <h2>C. Resume Summary</h2>
@@ -83,27 +83,32 @@ Instructions:
 
    <h2>D. Detailed Analysis and Thought Process</h2>
    <ul>
-     <li>Outline the key considerations and reasoning steps you took in analyzing the resume. This should include assessments of education, technical skills, project experience, and any noticeable strengths or gaps.</li>
+     <li>Outline the key considerations and reasoning steps you took when analyzing the resume. Address elements such as education, technical skills, project experience, and any noticeable strengths or gaps.</li>
    </ul>
 
    <h2>E. Potential Improvements</h2>
    <ul>
-     <li>List at least three specific suggestions to improve the resume.</li>
-     <li>For each suggestion, provide a bullet point that includes both the recommendation and a brief explanation of why it is important.</li>
-     <li>Avoid including or emphasizing sensitive personal information (such as exact academic standings or CGPA) in your recommendations.</li>
+     <li>List at least three specific, actionable suggestions to improve the resume.</li>
+     <li>For each suggestion, include:
+         <ul>
+             <li><strong>Recommendation:</strong> Clearly state what should be changed or added.</li>
+             <li><strong>Explanation:</strong> Briefly explain why this change is important and how it will improve the resume's organization, professional feel, and attractiveness.</li>
+         </ul>
+     </li>
+     <li>Provide concrete examples where possible (e.g., how to format a section, wording for a professional summary, etc.).</li>
    </ul>
 
    <h2>F. Additional Feedback (Optional)</h2>
    <ul>
-     <li>If relevant, offer any extra insights regarding formatting, clarity, or further refinements to enhance the resume’s overall presentation.</li>
+     <li>Offer any extra insights on formatting, clarity, or further refinements to enhance the resume’s overall presentation.</li>
+     <li>Include recommendations for any areas that can exponentially increase the resume’s quality, such as reorganizing sections, adding quantifiable achievements, or using a modern design approach.</li>
    </ul>
 
 Additional Guidelines:
-- Use a clear, formal, and professional tone throughout your analysis.
+- Use a clear, formal, and professional tone throughout.
 - Ensure that the entire output is wrapped in valid HTML.
-- Use HTML tags appropriately: use <strong> to highlight key details, <p> for paragraph breaks, and <ul>/<li> for lists.
-- Focus solely on delivering a structured, actionable analysis that aligns exactly with the sections outlined above.
-- Avoid any extraneous commentary or instructions beyond the specified structure.
+- Adhere strictly to the specified structure with no extra commentary.
+- Focus solely on delivering a structured, actionable analysis that provides real value to job applicants.
 
 Please provide your final output exactly following this HTML structure.
 `;
