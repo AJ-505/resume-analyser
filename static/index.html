@@ -30,7 +30,17 @@
             Analyze Resume
           </button>
         </form>
-        <div id="output">Resume summary will appear here...</div>
+        <div id="output">
+          <p class="output__text">Please select a resume file to analyse.</p>
+          <div class="loader">
+            <div class="loader__animation">
+              <div class="loader__animation--dot"></div>
+              <div class="loader__animation--dot"></div>
+              <div class="loader__animation--dot"></div>
+            </div>
+            <p class="loader__text">Generating Resume Summary</p>
+          </div>
+        </div>
       </section>
     </div>
     <script src="../src/index.js"></script>

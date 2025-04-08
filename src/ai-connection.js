@@ -20,7 +20,7 @@ async function generateResponse(prompt) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "nousresearch/deephermes-3-llama-3-8b-preview:free",
+        model: "deepseek/deepseek-chat-v3-0324:free",
         messages: [
           {
             role: "user",

@@ -3,7 +3,23 @@ const form = document.querySelector("#resume-form");
 const file = document.querySelector("#file");
 const fileName = document.querySelector(".file-upload__label");
 const output = document.querySelector("#output");
+const outputText = document.querySelector(".output__text");
+const loader = document.querySelector(".loader");
 let selectedFile;
+
+function hide(element) {
+  if (!element.dataset.originalDisplay) {
+    element.dataset.originalDisplay = getComputedStyle(element).display;
+  }
+  element.style.display = "none";
+}
+
+function show(element) {
+  element.style.display = element.dataset.originalDisplay || "block";
+}
+
+//When the page loads, hide the loader.
+hide(loader);
 
 async function sendData() {
   try {
@@ -17,8 +33,9 @@ async function sendData() {
 
     if (result.ok) {
       const text = await result.json();
-      output.innerHTML = text.body;
-      /*
+      const processedText = processText(text.body);
+      output.innerHTML = processedText;
+      /*89
       TODO: Decide whether to put the analysis in a new page,
             Or to use a carousel to display each section of the analysis.
             (Get feedback to help decide)
@@ -46,10 +63,20 @@ file.addEventListener("change", (event) => {
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  output.textContent = "Analysing your resume...";
+  show(loader);
+  hide(outputText);
   if (selectedFile) {
     await sendData();
   } else {
     alert("Please upload a resume first.");
   }
 });
+
+function processText(text) {
+  const start = text.indexOf("<div>");
+  const end = text.lastIndexOf("</div>") + 6; // +6 to include </div>
+  let result = text.slice(start, end);
+  result = result.replaceAll("\\n", "");
+  result = result.replaceAll("\\", "");
+  return result;
+}
