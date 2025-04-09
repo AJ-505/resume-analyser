@@ -1,14 +1,17 @@
 /* USING BEM CSS */
 
-*, *::before, *::after{
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
 }
 
-html, body {
-  background-color: #E8F0FE;
+html,
+body {
+  background-color: #e8f0fe;
   text-align: center;
 }
 
@@ -22,11 +25,11 @@ button:hover {
 }
 
 .root {
-  min-height: 95vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 1.2rem;
+  padding: 1.35rem 0;
 }
 
 .main {
@@ -36,6 +39,7 @@ button:hover {
   box-shadow: 0 5px 8px rgba(0, 0, 0.5);
   min-height: 60vh;
   max-width: min(85%, 700px);
+  margin-bottom: 1rem;
 }
 
 .main__heading {
@@ -51,8 +55,9 @@ button:hover {
   position: relative;
 }
 
-.file-upload__custom-label-button, .file-upload__submit-button {
-  background-color: #3498DB;
+.file-upload__custom-label-button,
+.file-upload__submit-button {
+  background-color: #3498db;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -63,7 +68,11 @@ button:hover {
   transition: opacity 100ms ease-out;
 }
 
-.file-upload__submit-button{
+.file-upload__custom-label-button {
+  flex-grow: 1;
+}
+
+.file-upload__submit-button {
   background-color: #2ecc71;
 }
 
@@ -75,7 +84,13 @@ button:hover {
 
 .file-upload__file {
   opacity: 0;
+  pointer-events: none;
   position: absolute;
+  right: 0;
+  top: 20%;
+  transform: translateY(-50%);
+  width: 52%;
+  height: 52%;
 }
 
 #output {
@@ -94,7 +109,8 @@ button:hover {
   gap: 0.8rem;
 }
 
-.loader__text, .output__text {
+.loader__text,
+.output__text {
   font-size: 1.2rem;
   font-weight: 500;
 }
@@ -123,14 +139,42 @@ button:hover {
   animation-delay: 0.4s;
 }
 @keyframes loader-animation {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
     transform: translateY(0.7rem);
   }
 }
-/*
-- Animate the text movement to improve UI & UX (refer to YouTube)
-- Ask AI for potential improvements that I can make to the UI
-*/
+.copy-output-button {
+  padding: 0.5rem 0;
+  gap: 0.2rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.copy-output-button > * {
+  cursor: pointer;
+}
+.copy-output-button:hover,
+.copy-output-button:focus {
+  opacity: 0.6;
+}
+.copy-output-button img {
+  filter: brightness(-50%);
+}
+.copied-popup-message {
+  position: fixed;
+  right: 20px;
+  background-color: #4caf50;
+  color: white;
+  bottom: 10px;
+  padding: 0.6em 0.8em;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}

@@ -126,6 +126,7 @@ Begin your analysis now.
 `;
 
   let result = await generateResponse(prompt);
+  console.log(result);
   response.json({ body: result });
 });
 
