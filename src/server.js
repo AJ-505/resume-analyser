@@ -6,6 +6,7 @@ import mammoth from "mammoth";
 import cors from "cors";
 import parsePdf from "./parse-pdf.cjs";
 import generateResponse from "./ai-connection.js";
+import fs from "fs/promises";
 
 const app = express();
 config();
@@ -30,28 +31,24 @@ app.post("/analyse", uploads.single("file"), async (request, response) => {
   const filePath = file.path;
   let fileText;
 
-  switch (fileType) {
-    case acceptableFileTypes[0]:
-      fileText = String(readFileSync(filePath));
-      break;
+  try {
+    switch (fileType) {
+      case "text/plain":
+        fileText = String(await fs.readFile(filePath));
+        break;
+      case "application/pdf":
+        fileText = (await parsePdf(filePath)).text.trim();
+        break;
+      case "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+        fileText = (
+          await mammoth.extractRawText({ path: filePath })
+        ).value.trim();
+        break;
+      default:
+        return response.status(400).send("Unsupported file type");
+    }
 
-    case acceptableFileTypes[1]:
-      fileText = await parsePdf(filePath);
-      fileText = fileText.text.trim();
-      break;
-
-    case acceptableFileTypes[2]:
-      fileText = await mammoth.extractRawText({
-        path: filePath,
-      });
-      fileText = fileText.value.trim();
-      break;
-    default:
-      console.error("Unsupported file type");
-      break;
-  }
-
-  const prompt = `
+    const prompt = `
 You are an expert career assistant and resume analyst.
 
 You will analyze the following text input (expected to be a resume or CV) and produce a professional, clear, and fully structured analysis in clean, valid HTML. Wrap all the cleanly formatted HTML in a single <div> element. This output will be rendered directly on a frontend interface — avoid any non-HTML content or commentary outside the specified structure.
@@ -125,9 +122,19 @@ Additional Rules:
 Begin your analysis now.
 `;
 
-  let result = await generateResponse(prompt);
-  response.json({ body: result });
-  //TODO: Clear the uploads folder after all the operations have been carried out. Highly important during production.
+    const result = await generateResponse(prompt);
+    response.json({ body: result });
+  } catch (error) {
+    console.error("Error processing file:", error);
+    response.status(500).send("Internal Server Error");
+  } finally {
+    // Clear the uploads folder
+    fs.readdir("uploads")
+      .then((files) =>
+        Promise.all(files.map((file) => fs.unlink(`uploads/${file}`)))
+      )
+      .catch((err) => console.error("Error clearing uploads folder:", err));
+  }
 });
 
 const PORT = process.env.PORT;
