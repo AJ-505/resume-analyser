@@ -1,4 +1,3 @@
-//TODO: Convert all codebase to typescript
 const form = document.querySelector("#resume-form");
 const file = document.querySelector("#file");
 const fileName = document.querySelector(".file-upload__label");
@@ -28,10 +27,10 @@ hide(loader);
 hide(copyButton);
 
 async function sendData() {
+  show(loader);
+  hide(copyButton);
+  hide(outputText);
   try {
-    show(loader);
-    hide(copyButton);
-    hide(outputText);
     const formData = new FormData();
     formData.append("file", selectedFile, selectedFile.name);
 
@@ -41,7 +40,7 @@ async function sendData() {
       body: formData,
     });
 
-    if (result.ok) {
+    if (result && result.ok) {
       const text = await result.json();
       const processedText = processText(text.body);
       show(outputText);

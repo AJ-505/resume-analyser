@@ -87,7 +87,7 @@ If it **is** a resume, perform a deep, structured analysis under the following c
 
 <h2>C. Professional Summary</h2>
 <ul>
-  <li>Provide a 2–3 sentence executive summary capturing the candidate’s core strengths, technical skills, and standout experience.</li>
+  <li>Provide a 2-3 sentence executive summary capturing the candidate’s core strengths, technical skills, and standout experience.</li>
 </ul>
 
 <h2>D. Evaluation and Thought Process</h2>
@@ -126,8 +126,8 @@ Begin your analysis now.
 `;
 
   let result = await generateResponse(prompt);
-  console.log(result);
   response.json({ body: result });
+  //TODO: Clear the uploads folder after all the operations have been carried out. Highly important during production.
 });
 
 const PORT = process.env.PORT;
@@ -139,5 +139,4 @@ TODO:
 . Delete all file uploads after showing the AI response to the user.
 . Consider adding a button for Comprehensive Analysis or Brief Summary, with different prompts depending on user input (get feedback before implementing this)
 . Improve UI&UX design and increase aesthetical quality.
-. Convert entire codebase to TypeScript
 */
