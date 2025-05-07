@@ -43,6 +43,12 @@ async function sendData() {
     if (result && result.ok) {
       const text = await result.json();
       const processedText = processText(text.body);
+      if (!processedText.trim()) {
+        show(outputText);
+        outputText.innerHTML =
+          "<div>Unable to generate resume summary. Please Retry.</div>";
+        return;
+      }
       show(outputText);
       outputText.innerHTML = processedText;
       show(copyButton);
@@ -58,14 +64,15 @@ async function sendData() {
             Also add the option to view the comprehensive report on a page.
       */
     } else {
+      show(outputText);
       outputText.innerHTML =
-        "<div><strong>Unable to generate resume summary.</strong></div>";
+        "<div>Unable to generate resume summary. Please Retry.</div>";
       return;
     }
   } catch (error) {
+    show(outputText);
     outputText.innerHTML =
-      "<div><strong>Unable to generate resume summary.</strong></div>";
-    console.error(error);
+      "<div>Unable to generate resume summary. Please Retry.</div>";
     return;
   } finally {
     hide(loader);
