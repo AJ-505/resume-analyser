@@ -1,7 +1,6 @@
 import express from "express";
 import { config } from "dotenv";
 import multer from "multer";
-import { readFileSync } from "fs";
 import mammoth from "mammoth";
 import cors from "cors";
 import parsePdf from "./parse-pdf.cjs";

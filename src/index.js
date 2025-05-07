@@ -8,6 +8,7 @@ const popupMessage = document.querySelector(".copied-popup-message");
 const analyseResumeButton = document.querySelector(
   ".file-upload__submit-button"
 );
+
 let selectedFile;
 let selectedFileName;
 let fileHasChanged = false;
@@ -35,9 +36,14 @@ async function sendData() {
     formData.append("file", selectedFile, selectedFile.name);
 
     analyseResumeButton.style.pointerEvents = "none"; //Disallow the user from clicking the button until the process is completed
-    const result = await fetch("http://localhost:7000/analyse", {
+    const API_URL = "https://resume-analyser-api.onrender.com/analyse" // Remember to switch to "http://localhost:7000/analyse" in dev mode
+    alert(API_URL);
+    const result = await fetch(API_URL, {
       method: "POST",
       body: formData,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      }
     });
 
     if (result && result.ok) {
@@ -71,6 +77,7 @@ async function sendData() {
     }
   } catch (error) {
     show(outputText);
+    console.error("Error:", error);
     outputText.innerHTML =
       "<div>Unable to generate resume summary. Please Retry.</div>";
     return;
