@@ -37,7 +37,6 @@ async function sendData() {
 
     analyseResumeButton.style.pointerEvents = "none"; //Disallow the user from clicking the button until the process is completed
     const API_URL = "https://resume-analyser-api.onrender.com/analyse" // Remember to switch to "http://localhost:7000/analyse" in dev mode
-    alert(API_URL);
     const result = await fetch(API_URL, {
       method: "POST",
       body: formData,
